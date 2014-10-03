@@ -1,0 +1,29 @@
+{
+  "name": "gridr",
+  "version": "0.0.0",
+  "description": "canvas grid",
+  "main": "index.js",
+  "scripts": {
+    "jshint": "jshint test/* lib/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tillarnold/gridr"
+  },
+  "keywords": [],
+  "author": "Till Arnold",
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "~2.11.1",
+    "insert-css": "^0.2.0",
+    "istanbul": "~0.3.0",
+    "jshint": "^2.5.3",
+    "raf": "^2.0.4",
+    "tape": "^2.14.0"
+  },
+  "dependencies": {
+    "canvas-utils": "^0.2.0",
+    "fixed-2d-array": "^1.0.1",
+    "inherits": "^2.0.1"
+  }
+}
