@@ -1,7 +1,7 @@
 var raf = require('raf');
 
-var Gridr = require('../index.js');
-require('insert-css')('#c{outline:#000 solid 1px;height:45vmin;width:90vmin;}body,html{height:100vh}body{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:box;display:flex;-webkit-box-align:center;-o-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;-webkit-box-pack:center;-o-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center}.controlls{position:absolute;top:0;left:0}*{margin:0;padding:0}');
+var Gridr = require('../index.js').Gridr;
+require('insert-css')('#c{outline:#000 solid 1px;height:45vmin;width:90vmin;}body,html{height:100vh}body{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:box;display:flex;-webkit-box-align:center;-o-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;-webkit-box-pack:center;-o-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center}');
 
 document.body.innerHTML =
   '<canvas id="c" height="1000px" width="2000px"></canvas><button id="toggle">toggle</button>';
