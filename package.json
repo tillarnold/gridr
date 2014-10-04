@@ -14,12 +14,9 @@
   "author": "Till Arnold",
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "~2.11.1",
     "insert-css": "^0.2.0",
-    "istanbul": "~0.3.0",
     "jshint": "^2.5.3",
-    "raf": "^2.0.4",
-    "tape": "^2.14.0"
+    "raf": "^2.0.4"
   },
   "dependencies": {
     "canvas-utils": "^0.2.0",
