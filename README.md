@@ -6,4 +6,5 @@
 Named after the female jötunn [Gríðr](http://en.wikipedia.org/wiki/Gr%C3%AD%C3%B0r).
 
 ## Release History
+* 2014-11-04   v0.0.2   Fix bug with `fullRedraw`.
 * 2014-11-04   v0.0.1   Initial version.
