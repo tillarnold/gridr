@@ -19,7 +19,7 @@
     "raf": "^2.0.4"
   },
   "dependencies": {
-    "canvas-utils": "^0.2.0",
+    "canvas-utils": "^0.3.2",
     "fixed-2d-array": "^1.0.1",
     "inherits": "^2.0.1"
   }
