@@ -4,7 +4,8 @@
   "description": "canvas grid",
   "main": "index.js",
   "scripts": {
-    "jshint": "jshint test/* lib/*"
+    "jshint": "jshint test/* lib/*",
+    "serve":"beefy test/test.js  --live -v"
   },
   "repository": {
     "type": "git",
@@ -14,9 +15,11 @@
   "author": "Till Arnold",
   "license": "MIT",
   "devDependencies": {
+    "beefy": "^2.1.1",
     "insert-css": "^0.2.0",
     "jshint": "^2.5.3",
-    "raf": "^2.0.4"
+    "raf": "^2.0.4",
+    "watchify": "^2.0.0"
   },
   "dependencies": {
     "canvas-utils": "^0.3.2",
