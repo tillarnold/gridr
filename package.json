@@ -22,7 +22,7 @@
     "watchify": "^2.0.0"
   },
   "dependencies": {
-    "canvas-utils": "^0.4.0",
+    "canvas-utils": "^0.5.0",
     "fixed-2d-array": "^1.0.1",
     "inherits": "^2.0.1"
   }
