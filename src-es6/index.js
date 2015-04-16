@@ -1,3 +1,6 @@
-module.exports.Gridr = require('./lib/gridr.js');
-module.exports.DirtyGrid = require('./lib/dirtyGrid.js');
+import Gridr from './lib/gridr'
+import DirtyGrid from './lib/dirtyGrid'
 
+export { Gridr
+       , DirtyGrid
+       }
