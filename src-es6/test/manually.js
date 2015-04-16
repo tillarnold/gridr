@@ -1,6 +1,6 @@
-var raf = require('raf')
+let raf = require('raf')
 
-var Gridr = require('../index.js').Gridr
+let Gridr = require('../index.js').Gridr
 require('insert-css')(`
 #c{
   outline:#000 solid 1px;
@@ -20,7 +20,7 @@ body{
 document.body.innerHTML =
   '<canvas id="c" height="1000px" width="2000px"></canvas><button id="toggle">toggle</button>'
 
-var g = Gridr.createDefaultConfig(document.getElementById('c'), 50, 50)
+let g = Gridr.createDefaultConfig(document.getElementById('c'), 50, 50)
 
 g.on('mousedown', function(e) {
   g.set(e.x, e.y, {
@@ -96,7 +96,7 @@ g.set(9, 13, {
 g.draw()
 
 
-var move = 0.1
+let move = 0.1
 
 
 let step = function step() {
@@ -121,9 +121,9 @@ let drawStep = function drawStep() {
 
 drawStep()
 
-var inter = setInterval(step, 10)
+let inter = setInterval(step, 10)
 
-var running = true
+let running = true
 document.getElementById('toggle').addEventListener('click', function() {
   if (running) {
     window.clearInterval(inter)

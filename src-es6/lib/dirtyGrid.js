@@ -1,6 +1,6 @@
-var Fixed2dArray = require('fixed-2d-array')
+let Fixed2dArray = require('fixed-2d-array')
 
-var DirtyGrid = function(w, h, d) {
+let DirtyGrid = function(w, h, d) {
   this._w = w
   this._h = h
   this._grid = new Fixed2dArray(w, h, d)

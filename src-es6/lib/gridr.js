@@ -77,7 +77,7 @@ export default class Gridr extends EventEmitter{
    * returns true if the given cell lies within th viewpoint. else returns false
    */
   isInViewpoint(xn, yn) {
-    var {x, y, width, height} = this._viewpoint
+    let {x, y, width, height} = this._viewpoint
 
     if (xn > Math.floor(x + width) || yn > Math.floor(y + height)) {
       return false
@@ -215,7 +215,7 @@ export default class Gridr extends EventEmitter{
       , offestTop = (canvas.height - tilesY * tileSize) / 2
 
     if (this.preventAntialiasing) {
-      var diff = tileSize % 1
+      let diff = tileSize % 1
       tileSize = Math.floor(tileSize)
       offestLeft += diff / 2
       offestTop += diff / 2
