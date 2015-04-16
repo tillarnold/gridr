@@ -5,7 +5,7 @@ var DirtyGrid = require('./dirtyGrid.js');
 
 var Gridr = function Gridr(canvas, grid, transformFunction, renderFunction, viewpoint) {
 
-  var cee = new canvasUtils.CanvasEventEmitter(canvas);
+  var cee = canvasUtils.createCanvasEventEmitter(canvas);
   var that = this;
 
   ['click', 'mousedown', 'mouseup', 'mousemove'].forEach(function(elem) {

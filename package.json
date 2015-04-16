@@ -2,10 +2,16 @@
   "name": "gridr",
   "version": "0.1.0",
   "description": "canvas grid",
-  "main": "index.js",
+  "main": "es5-generated/index.js",
   "scripts": {
-    "jshint": "jshint test/* lib/*",
-    "serve":"beefy test/test.js  --live -v"
+    "test": "npm run build && node es5-generated/test/test.js",
+    "test-coveralls": "npm run istanbul && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "coverage": "rm -rf coverage && npm run istanbul && istanbul report html && serve coverage",
+    "istanbul": "npm run build && istanbul cover es5-generated/test/test.js",
+    "lint": "eslint src-es6/*",
+    "jshint": "jshint src-es6/*",
+    "build": "rm -rf es5-generated && mkdir es5-generated  && babel --optional runtime src-es6 --out-dir es5-generated",
+    "test-manually": "npm run build && beefy es5-generated/test/manually.js -v"
   },
   "repository": {
     "type": "git",
@@ -15,14 +21,18 @@
   "author": "Till Arnold",
   "license": "MIT",
   "devDependencies": {
+    "babel": "^5.1.10",
+    "babel-eslint": "^3.0.1",
     "beefy": "^2.1.1",
+    "eslint": "^0.19.0",
     "insert-css": "^0.2.0",
     "jshint": "^2.5.3",
     "raf": "^2.0.4",
-    "watchify": "^2.0.0"
+    "watchify": "^3.1.1"
   },
   "dependencies": {
-    "canvas-utils": "^0.5.0",
+    "babel-runtime": "^5.1.10",
+    "canvas-utils": "^0.6.0",
     "fixed-2d-array": "^1.0.1",
     "inherits": "^2.0.1"
   }
