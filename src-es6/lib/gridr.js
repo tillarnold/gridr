@@ -5,27 +5,26 @@ import DirtyGrid from './dirtyGrid'
 export default class Gridr extends EventEmitter{
   constructor (canvas, grid, transformFunction, renderFunction, viewpoint = {}) {
     super()
-    let cee = createCanvasEventEmitter(canvas)
+    const cee = createCanvasEventEmitter(canvas)
+        , attachEventListeners = elem => cee.on(elem, e => {
+            const tile = this.getTileForCoords(e.x, e.y)
+                , { target, event, button } = e
 
-    ; ['click', 'mousedown', 'mouseup', 'mousemove'].forEach(elem =>
-      cee.on(elem, e => {
-        let tile = this.getTileForCoords(e.x, e.y)
-          , { target, event, button } = e
+            if (tile === null) {
+              return
+            }
 
-        if (tile !== null) {
-          this.emit(elem, { x: tile.x
-                          , y: tile.y
-                          , xCoor: e.x
-                          , yCoor: e.y
-                          , type: elem
-                          , target
-                          , event
-                          , button
-                          , preventDefault: () => e.preventDefault()
-                          })
-        }
-      })
-    )
+            this.emit(elem, { x: tile.x
+                            , y: tile.y
+                            , xCoor: e.x
+                            , yCoor: e.y
+                            , type: elem
+                            , target
+                            , event
+                            , button
+                            , preventDefault: () => e.preventDefault()
+                            })
+          })
 
     this.needsFullRedraw = false
     this.preventAntialiasing = true
@@ -46,6 +45,8 @@ export default class Gridr extends EventEmitter{
     this._lastCanvasHeight = canvas.height
 
     this.setViewpoint(viewpoint)
+
+    ; ['click', 'mousedown', 'mouseup', 'mousemove'].forEach(attachEventListeners)
   }
 
 
