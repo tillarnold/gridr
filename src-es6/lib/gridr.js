@@ -105,9 +105,8 @@ export default class Gridr extends EventEmitter{
         , y: vy
         } = viewpoint
       , tileInfo = Gridr.getTileSize(canvas, vWidth, vHeight)
-      , item = grid.get(x, y)
+      , item = this._transformer.call(null, grid.get(x, y))
 
-    item = this._transformer.call(null, item)
     this._render.call(null, tileInfo, ctx, x - vx, y - vy, item)
   }
 
@@ -240,8 +239,7 @@ export default class Gridr extends EventEmitter{
    * TODO: Implement `text` property
    */
   static defaultRender(tileInfo, ctx, x, y, item) {
-    let tileSize = tileInfo.size
-      , { left, top } = tileInfo
+    let { size: tileSize, left, top } = tileInfo
 
     //console.log(arguments)
     if (item.color) {
@@ -264,9 +262,8 @@ export default class Gridr extends EventEmitter{
    * Creates a Gridr instance with a sane defualt config.
    */
   static createDefaultConfig (canvas, w, h) {
-    return new Gridr(canvas, new DirtyGrid(w, h, {
-      clear: true
-    }), e => e
-    , Gridr.defaultRender)
+    let grid = new DirtyGrid(w, h, { clear: true })
+
+    return new Gridr(canvas, grid, e => e, Gridr.defaultRender)
   }
 }
