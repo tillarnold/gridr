@@ -236,7 +236,6 @@ export default class Gridr extends EventEmitter{
    * be filled in that color. If the transformed item has a clear
    * property the cell will be cleared.
    *
-   * TODO: Implement `img` property
    * TODO: Implement `text` property
    */
   static defaultRender(tileInfo, ctx, x, y, item) {
@@ -256,6 +255,11 @@ export default class Gridr extends EventEmitter{
       ctx.clearRect(x * tileSize + left, y * tileSize + top,
         tileSize, tileSize)
       ctx.closePath()
+    }
+
+    if (item.img) {
+      ctx.drawImage(item.img, x * tileSize + left, y * tileSize + top,
+          tileSize, tileSize)
     }
   }
 

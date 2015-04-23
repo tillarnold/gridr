@@ -14,9 +14,7 @@ export default class DirtyGrid {
   }
 
   set(x, y, v) {
-    this._dirtyCoordinates.push({ x: x
-                                , y: y
-                                })
+    this._dirtyCoordinates.push({ x, y })
 
     return this._grid.set(x, y, v)
   }

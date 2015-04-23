@@ -22,114 +22,119 @@ document.body.innerHTML =
 
 let g = Gridr.createDefaultConfig(document.getElementById('c'), 50, 50)
 
-g.on('mousedown', function(e) {
-  g.set(e.x, e.y, {
-    color: 'purple'
+let img = new Image()
+img.src = "http://lorempixel.com/400/200/nature/1"
+
+img.onload = () => {
+  g.on('mousedown', function(e) {
+    g.set(e.x, e.y, {
+      img
+    })
   })
-})
 
-g.setViewpoint({ width: 20
-               , height: 10
-               , x: 10
-               , y: 5
-               })
+  g.setViewpoint({ width: 20
+                 , height: 10
+                 , x: 10
+                 , y: 5
+                 })
 
-g.set(5, 6, {
-  color: 'red'
-})
-g.set(0, 6, {
-  color: 'blue'
-})
-g.set(2, 0, {
-  color: 'orange'
-})
-
-g.set(10, 3, {
-  color: 'orange'
-})
-g.set(10, 7, {
-  color: 'orange'
-})
-g.set(10, 8, {
-  color: 'red'
-})
-g.set(19, 4, {
-  color: 'red'
-})
-
-g.set(20, 13, {
-  color: 'blue'
-})
-g.set(19, 13, {
-  color: 'blue'
-})
-g.set(18, 13, {
-  color: 'blue'
-})
-g.set(17, 13, {
-  color: 'blue'
-})
-g.set(16, 13, {
-  color: 'blue'
-})
-g.set(15, 13, {
-  color: 'blue'
-})
-g.set(14, 13, {
-  color: 'blue'
-})
-g.set(13, 13, {
-  color: 'blue'
-})
-g.set(12, 13, {
-  color: 'blue'
-})
-g.set(11, 13, {
-  color: 'blue'
-})
-g.set(10, 13, {
-  color: 'blue'
-})
-g.set(9, 13, {
-  color: 'blue'
-})
-g.draw()
-
-
-let move = 0.1
-
-
-let step = function step() {
-  if (g._viewpoint.x >= 18) {
-    move = -0.1
-  }
-
-  if (g._viewpoint.x <= 1) {
-    move = 0.1
-  }
-
-  g.setViewpoint({
-    x: g._viewpoint.x + move
+  g.set(5, 6, {
+    color: 'red'
   })
-}
+  g.set(0, 6, {
+    color: 'blue'
+  })
+  g.set(2, 0, {
+    color: 'orange'
+  })
 
+  g.set(10, 3, {
+    color: 'orange'
+  })
+  g.set(10, 7, {
+    color: 'orange'
+  })
+  g.set(10, 8, {
+    color: 'red'
+  })
+  g.set(19, 4, {
+    color: 'red'
+  })
 
-let drawStep = function drawStep() {
+  g.set(20, 13, {
+    color: 'blue'
+  })
+  g.set(19, 13, {
+    color: 'blue'
+  })
+  g.set(18, 13, {
+    color: 'blue'
+  })
+  g.set(17, 13, {
+    color: 'blue'
+  })
+  g.set(16, 13, {
+    color: 'blue'
+  })
+  g.set(15, 13, {
+    color: 'blue'
+  })
+  g.set(14, 13, {
+    color: 'blue'
+  })
+  g.set(13, 13, {
+    color: 'blue'
+  })
+  g.set(12, 13, {
+    color: 'blue'
+  })
+  g.set(11, 13, {
+    color: 'blue'
+  })
+  g.set(10, 13, {
+    color: 'blue'
+  })
+  g.set(9, 13, {
+    color: 'blue'
+  })
   g.draw()
-  raf(drawStep)
-}
 
-drawStep()
 
-let inter = setInterval(step, 10)
+  let move = 0.1
 
-let running = true
-document.getElementById('toggle').addEventListener('click', function() {
-  if (running) {
-    window.clearInterval(inter)
-    running = false
-  } else {
-    inter = setInterval(step, 10)
-    running = true
+
+  let step = function step() {
+    if (g._viewpoint.x >= 18) {
+      move = -0.1
+    }
+
+    if (g._viewpoint.x <= 1) {
+      move = 0.1
+    }
+
+    g.setViewpoint({
+      x: g._viewpoint.x + move
+    })
   }
-})
+
+
+  let drawStep = function drawStep() {
+    g.draw()
+    raf(drawStep)
+  }
+
+  drawStep()
+
+  let inter = setInterval(step, 10)
+
+  let running = true
+  document.getElementById('toggle').addEventListener('click', function() {
+    if (running) {
+      window.clearInterval(inter)
+      running = false
+    } else {
+      inter = setInterval(step, 10)
+      running = true
+    }
+  })
+}
