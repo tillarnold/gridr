@@ -23,7 +23,7 @@ document.body.innerHTML =
 let g = Gridr.createDefaultConfig(document.getElementById('c'), 50, 50)
 
 let img = new Image()
-img.src = "http://lorempixel.com/400/200/nature/1"
+img.src = 'http://lorempixel.com/400/200/nature/1'
 
 img.onload = () => {
   g.on('mousedown', function(e) {
